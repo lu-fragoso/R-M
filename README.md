@@ -1,2 +1,2 @@
 # R-M
-Splicação que irá consumir a API do Rick and Morty
+Aplicação que irá consumir a API do Rick and Morty
