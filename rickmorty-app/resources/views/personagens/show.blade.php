@@ -17,7 +17,6 @@
             <form method="POST" action="#">
                 @csrf
                 <button class="btn btn-outline-danger" disabled>❤️ Favoritar</button>
-                <small class="text-muted ms-2">(Função em desenvolvimento)</small>
             </form>
 
             <a href="{{ route('personagens.index') }}" class="btn btn-secondary mt-3">← Voltar</a>
