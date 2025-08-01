@@ -17,7 +17,12 @@ use App\Http\Controllers\FavoritoController;
 Route::middleware(['auth'])->group(function () {
     Route::post('/favoritar', [FavoritoController::class, 'store'])->name('favoritos.store');
     Route::get('/favoritos', [FavoritoController::class, 'index'])->name('favoritos.index');
+    Route::get('/favoritos/{id}', [FavoritoController::class, 'show'])->name('favoritos.show');
+    Route::resource('favoritos', FavoritoController::class)->middleware('auth');
 });
+
+
+
 
 Route::get('/login-teste', function () {
     return auth()->check() ? 'Logado como ' . auth()->user()->email : 'Não logado';
