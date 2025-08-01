@@ -24,7 +24,6 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $p['name'] }}</h5>
-                    <p class="card-text"><strong>Status:</strong> {{ $p['status'] }}</p>
                 </div>
             </div>
         </div>
