@@ -13,7 +13,11 @@ class CreateFavoritosTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
             $table->integer('personagem_id');
             $table->string('personagem_nome');
+            $table->string('personagem_especie');
             $table->string('personagem_imagem');
+            $table->string('personagem_url');
+            $table->string('personagem_create_at');
+            $table->string('personagem_update_at');
             $table->timestamps();
         });
     }
