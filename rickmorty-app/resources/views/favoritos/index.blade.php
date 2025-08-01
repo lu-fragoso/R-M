@@ -1,20 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="mb-4">Seus Personagens Favoritos</h2>
+<div class="container">
+    <h2>Meus Favoritos</h2>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
     @if($favoritos->isEmpty())
-        <p>Você ainda não favoritou nenhum personagem.</p>
+        <p>Você não tem personagens favoritos ainda.</p>
     @else
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="row">
             @foreach($favoritos as $fav)
-                <div class="col">
+                <div class="col-md-3 mb-3">
                     <div class="card h-100">
-                        <img src="{{ $fav->personagem_imagem }}" class="card-img-top" alt="{{ $fav->personagem_nome }}">
-                        <div class="card-body">
+                        <a href="{{ route('favoritos.show', $fav->id) }}">
+                            <img src="{{ $fav->personagem_imagem }}" class="card-img-top" alt="{{ $fav->personagem_nome }}">
+                        </a>
+                        <div class="card-body text-center">
                             <h5 class="card-title">{{ $fav->personagem_nome }}</h5>
-                            <a href="{{ route('personagens.show', $fav->personagem_id) }}" class="btn btn-primary w-100">Ver detalhes</a>
+                            <p class="card-text">{{ $fav->personagem_especie }}</p>
                         </div>
                     </div>
                 </div>
