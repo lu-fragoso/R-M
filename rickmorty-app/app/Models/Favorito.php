@@ -14,7 +14,13 @@ class Favorito extends Model
         'personagem_id',
         'personagem_nome',
         'personagem_imagem',
+        'personagem_especie',
+        'personagem_url',
+        'personagem_create_at',
+        'personagem_update_at',
     ];
+   
+    public $timestamps = true;
 
     public function user()
     {
