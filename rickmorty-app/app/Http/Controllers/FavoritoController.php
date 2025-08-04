@@ -51,7 +51,12 @@ class FavoritoController extends Controller
 
     public function index()
     {
-        $favoritos = Auth::user()->favoritos;
+        $perPage = 20;
+
+        $user = Auth::user();
+
+        $favoritos = $user->favoritos()->paginate($perPage);
+
         return view('favoritos.index', compact('favoritos'));
     }
 
@@ -77,6 +82,7 @@ public function destroy($id)
 
     return redirect()->route('favoritos.index')->with('success', 'Personagem removido dos favoritos com sucesso!');
 }
+
 
 
 }
